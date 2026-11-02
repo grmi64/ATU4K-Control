@@ -62,4 +62,4 @@ Windows and final signed-package acceptance are not established by these tests.
 Repository scope
 Source, tests, icon assets and build documentation only. Personal settings backups,
 imported memory-label exports, raw captures, screenshots and compiled apps stay
-local. No software license has been selected for this source repository.
+local. Licensed under the MIT License; see LICENSE.
