@@ -1,0 +1,14 @@
+ATU4K Control0.9.4 (24) — source checkpoint, 2026-11-01
+
+Passed sh test.sh on the development Mac:
+- JavaScript: controller/naming model, bounded reply parser, status/UI/command guards.
+- Native: MotorGate, MemoryGate, SettingsBackup, USBDiscovery, USBStatus,
+  MotorUSB, MemoryUSB, USBOpenCancellation, DXCBridge (nine suites).
+- Native USB tests use pseudo-terminals and a rejected dummy path, never real USB.
+- DXC tests use a fresh loopback-only ephemeral port with fake command callbacks.
+- Current source hashes match source-sha256.json.
+
+No hardware ports opened, physical motors moved, installed app replaced, or
+settings altered for this checkpoint. No compiled binary release, signing or
+notarization was performed by the check-in. Windows native host and physical
+boundary/final-package acceptance remain pending.

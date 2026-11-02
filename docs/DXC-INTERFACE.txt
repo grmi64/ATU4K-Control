@@ -1,0 +1,14 @@
+ATU4K / DX Caliber shared interface v1
+Mac reference source: src/DXCBridge.swift
+DXC adapter: grmi64/DX-Watcher: atu4k_feed.py (release/dev-0.6.176)
+DXC widget: logger_atu4k.js / logger_atu4k.css / logger.html
+
+Windows native host still needs implementing. Keep sole serial owner, existing motor/bank guards and single-command completion. Do not let DXC open another USB session.
+Loopback127.0.0.1:51986, GET/POST /api/v1/atu4k. No CORS, reject Origin and invalid Host. GET returns schema_version1, modelATU4K, sharing/fresh/pending/can_bank/can_recall booleans, generation(per-process+USB session), token(per-process64hex), mode, request, connected, busy, motorEnabled, memoryEnabled, bank, slot, positions{C,L}, lastKnown{C,L,savedAt}, sixteen labels, receipt{id,status,message}.
+DXC strips token before sending status to page. Disabled logger_atu4k setting stops companion polling.
+POST JSON: action selectBank or recall; UUIDid, generation, expected_bank, bank; recall slot1..8. X-ATU4K-Token header. Require live shared session; reject stale/busy/mismatched bank/generation. Recall additionally requires motor permission and confirmed starting values. Same-bank no-op accepted without USB write.
+Record request ID before dispatch, reject duplicate/replay. Return accepted202 after guarded dispatch, not motion completion. Publish receipt pending then complete/failed only after normal native completion/error. No retry/replay after timeout/disconnect. Reset permission/state on disconnect. Native guards remain authoritative.
+Hardware protocol and all deadlines remain in existing standalone USB layer. Read-only status byte8 on explicit connect only. No automatic hardware connect on app launch or DXC poll.
+Run existing standalone/UI/native regressions plus DXC adapter/widget suites and isolated endpoint tests before Windows hardware acceptance. Do not claim Mac tests as Windows native acceptance.
+
+Current Mac status refresh: GET evaluates captureDXCState() through the native host before returning a snapshot. It reads software state only; no USB query and no browser-timer heartbeat. Keep the stale deadline and native command gates.

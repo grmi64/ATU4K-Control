@@ -1,0 +1,18 @@
+# Built applications and local signing output
+/dist/
+*.app/
+*.dmg
+*.zip
+*.log
+.DS_Store
+.env
+.env.*
+
+# Personal exports, imported labels, development screenshots and raw captures
+/ATU4K-settings*.json
+/StepperTune-imported-memory-labels.json
+/memory-labels-before-PC-import.txt
+/README-development-history.local.txt
+/*.png
+*.pcap
+*.pcapng

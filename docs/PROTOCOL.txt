@@ -1,0 +1,24 @@
+StepperTune USB observations
+1200 baud, 8 data bits, no parity, 1 stop bit. CP210x10C4:EA60 identifies a likely
+USB adapter, not a unique tuner model. Native discovery does not open devices.
+
+ASCII byte actions:
+8: request bank/slot status (no numeric initial positions observed)
+6 / 7: select bank1 / bank2 (operator confirmed no motor movement)
+t / u: capacitor +1 / -1
+p / r: capacitor +100 / -100
+i / j: inductor +1 / -1
+k / m: inductor +100 / -100
+a..h: recall slots1..8 in the reported bank
+A..H: save slots1..8 in the reported bank
+
+Bank replies B1/B2 and memory replies M1..M8 are CR terminated. Leading-space
+memory acknowledgements are not completion. Recall completes only after matching
+unprefixed memory status plus bounded C/L numeric feedback. Captured reply formats,
+split boundaries and malformed-frame handling are retained in tests/replies.cjs.
+Current numeric bounds are C0..9555/L0..9200. No arbitrary byte-write interface.
+
+Native deadline: jog10seconds, bank5seconds, recall180seconds; UI fallbacks are
+slightly longer. Preserve single in-flight ownership, generation checks and unique
+command IDs. Disconnect/error/uncertain movement clears trust and motor permission;
+no retry/replay/automatic return. No physical stop or limit-query command identified.

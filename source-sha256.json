@@ -1,0 +1,14 @@
+{
+  "src/DXCBridge.swift": "a8b3273c56000ee9a59ba44e602e46025e3fcb4c7cb7efd242a9c5469ca9316a",
+  "src/MacHost.swift": "210e56c4506362a36ee96344c2be427b866ca906f595d3a4b39eddba5c53acc9",
+  "src/MemoryGate.swift": "f3dbad02bbfe6a919509dee15f05b3b9806597ebf6a2a6e6d32cf4fc0c1e57af",
+  "src/MotorGate.swift": "cfe7f8eecea9c0a630742b172e2c0806ca6e24c2a27ac64c193df5d91b6daca7",
+  "src/SettingsBackup.swift": "953045df385a9d8c770f6d596264209b34da96528d1197362666cae83aa16c0f",
+  "src/USBDiscovery.swift": "c06997d7041665c68d30ac9be1da24ca25a9ea951e50a9c224c1c4836bd963ae",
+  "src/USBStatus.swift": "9e783e8c03a9f57a957e235956e208b889a51ebe3361a4368f76d08f41d8a4bd",
+  "src/app.js": "8ad6b029bef8c022dafd2930acbe105dee9f560f2a159cf93d5435662f3e34c4",
+  "src/controller.js": "1bd5e8280d49a60619c5ae7035bd54f3ceb12c8808db3b60b995fdce6d5ae6d8",
+  "src/index.html": "fc01a74f0172705f4e3dffd2a89d9d6c3b951299461505916e99601360b5ce1e",
+  "src/replies.js": "c02aac02f53f890d8d4ed14d732826c7a0e26a9128237f97eb5d1051fdfd389b",
+  "src/style.css": "e9d442e1b5a50a59c088a2f57a275993d2ebf02c587180bf77c5f4be090eec73"
+}
